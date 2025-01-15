@@ -1,4 +1,4 @@
-# Patho-GPT: A Self-Supervised Deep Learning Framework for Histopathological Analysis
+# Patho-GPT: the Pathologic Generative Pretrained Transformers
 ## **Overview**
 This is the primary repository for reproducing the Patho-GPT framework, a self-supervised deep learning model designed for analyzing histopathological whole slide images (WSIs). Patho-GPT supports tasks such as feature extraction, tile-level and slide-level predictions, and survival outcome analysis.  
 The model utilizes a generative self-supervised learning approach, integrating attention-based mechanisms to provide interpretable predictions.
