@@ -6,10 +6,9 @@ The model utilizes a generative self-supervised learning approach, integrating a
 1. Install dependencies:  
 conda install pytorch torchvision torchaudio -c pytorch
 pip install numpy、matplotlib、scikit-learn、opencv-python==4.6.0.66、tensorflow、keras、tensorwatch、einops、timm
-2. Install Qupath 0.5.1 (to view attention maps in .geojson format; requires Windows OS).
 ## **Pipeline Overview**
 1. Preprocessing
-Run the preprocessing script to prepare WSI datasets:
+Run the slide_preparation script to prepare WSI datasets:
  Extract tiles from WSIs.
  Filter tiles based on quality and size.
 2. Self-Supervised Pretraining
@@ -42,7 +41,13 @@ The Up4 model is initialized using the weights from Up13.
 
 Up4 extracts features and performs reconstruction on the unlabeled training and internal validation .db files.
 
-Step 4: Training, Feature Extraction, and Reconstruction with Low4
+Step 4: Training with Up57
+
+The Up57 model is trained using the features extracted by Up4 from the unlabeled .db file of the training set.
+
+The model starts with random weights for this step.
+
+Step 5: Training, Feature Extraction, and Reconstruction with Low4(tile level supervised learning)
 
 The Low4 model is initialized again using the weights from Up13.
 
@@ -50,19 +55,13 @@ Low4 is trained on the labeled .db files (training and internal validation sets)
 
 After training, Low4 extracts features and performs reconstruction on the same labeled .db files.
 
-Step 5: Training with Up57
-
-The Up57 model is trained using the features extracted by Up4 from the unlabeled .db file of the training set.
-
-The model starts with random weights for this step.
-
 Step 6: Training with Low57
 
 The Low57 model is trained using the features extracted by Low4 from the labeled .db file of the training set.
 
 The training process uses the best-performing weights obtained from the Up57 model.
 
-Step 7: Final Inference with Low57 on Task 8
+Step 7: Final Inference with Low57 on Task 8(WSI level supervised learning)
 
 Using the best weights from the Low57 model, the system performs the final inference on Task 8.
 ## **Outputs**
@@ -72,7 +71,7 @@ Feature-extracted .db files for labeled and unlabeled datasets.
 
 Model Weights:
 
-Best-performing weights for Up57 and Low57, used in downstream analysis.
+Best-performing weights for Up57, up4 and Low57, used in downstream analysis.
 
 Slide-Level Predictions:
 
