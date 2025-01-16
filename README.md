@@ -26,7 +26,7 @@ Reconstruct and extract tile-level features:
 Train on slide-level tasks (e.g., survival prediction, target prediction):
  Use features aggregated from the tile-level tasks.
 ## **Running process and outputs**
-Run time is about 6*A800*168h for self-supervised learning and 6*A800*96h for classification task.
+Run time is about 6✖A800✖168h for self-supervised learning and 6✖A800✖96h for classification task.
 
 Step 1: Up13 Pretraining
 
