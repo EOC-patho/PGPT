@@ -1,4 +1,4 @@
-# PGPT: the Pathologic Generative Pretrained Transformers
+# PGPT
 ## **Overview**
 This is the primary repository for reproducing the PGPT framework, a self-supervised deep learning model designed for analyzing histopathological whole slide images (WSIs). PGPT supports tasks such as feature extraction, tile-level and slide-level predictions, and survival outcome analysis.  
 The model utilizes a generative self-supervised learning approach, integrating attention-based mechanisms to provide interpretable predictions.
