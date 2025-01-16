@@ -249,7 +249,6 @@ valid_loader = torch.utils.data.DataLoader(
     num_workers = num_workers
 )
 
-# 定义丢失函数和优化器
 w = torch.Tensor([0.22, 0.365, 0.415])  
 criterion = nn.CrossEntropyLoss(w).to(device)
 optimizer = torch.optim.AdamW(vit.parameters(), lr=3e-4, weight_decay = 0.05, eps = 1e-4, betas = [0.9, 0.95])
