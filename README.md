@@ -6,6 +6,7 @@ The model utilizes a generative self-supervised learning approach, integrating a
 1. Install dependencies:  
 conda install pytorch torchvision torchaudio -c pytorch
 pip install numpy、matplotlib、scikit-learn、opencv-python==4.6.0.66、tensorflow、keras、tensorwatch、einops、timm
+2. Installation time is approximately 1 hour.
 ## **Pipeline Overview**
 1. Preprocessing
 Run the slide_preparation script to prepare WSI datasets:
@@ -25,6 +26,8 @@ Reconstruct and extract tile-level features:
 Train on slide-level tasks (e.g., survival prediction, target prediction):
  Use features aggregated from the tile-level tasks.
 ## **Running process and outputs**
+Run time is about 6*A800*168h for self-supervised learning and 6*A800*96h for classification task.
+
 Step 1: Up13 Pretraining
 
   The Up13 model is pre-trained on a large collection of WSIs using self-supervised learning to capture general histopathological features.
